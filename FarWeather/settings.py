@@ -125,5 +125,3 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# fly settings
-CSRF_TRUSTED_ORIGINS = ["*.fly.dev"]
