@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-warning">
+        <div class="container-md">
+            <a class="navbar-brand" href="{% url 'home' %}">
+            <i class="bi bi-cloud-sun "></i>
+            FarWeather App
+            </a>
+        </div>
+    </nav>
+    <div class="container-md">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 col-md-7">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3 pt-5">
+                        <h4 class="text-center"><label for="city" class="form-label align-center mb-4">Enter City Name:</label></h4>
+                        <input type="text" class="form-control" id="city" name="city" aria-describedby="searchHelp">
+                        <div id="searchHelp" class="form-text">Please be specific to achieve accurate results. E.g, Dome, Accra</div>
+                        <div class="d-md-flex justify-content-center mt-4">
+                            <button class="btn btn-outline-success btn-md-lg">Get Weather</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="card" style="width: auto;">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5>
+                            <span class="me-4">{{city}}</span>
+                            <img class="ms-3" src="https://openweathermap.org/img/w/{{ icon }}.png" alt="">
+                        </h5>
+                        <div>
+                            <h6 class="card-subtitle mb-2 text-muted">{{temperature}} °C</h6>
+                            <hr>
+                            <p class="card-text">Weather description: {{description}}</p>
+                            <hr>
+                            <p class="card-text">Wind speed: {{wind_speed}} m/s</p>
+                            <hr>
+                            <p class="card-text">Pressure: {{pressure}} N/m<sup>2</sup></p>
+                            <hr>
+                            <p class="card-text">Humidity: {{humidity}} %</p>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <div class="container-md pt-5">
+        <footer
+                class="text-center text-lg-start bg-warning"
+                >
+                <div class="container pb-0">
+            <section class="">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-2">
+                <h6 class="text-uppercase mb-4 font-weight-bold">
+                    FarWeather
+                </h6>
+                <p>
+                   If you found this web app useful, you can donate to keep the site alive! 
+                </p>
+                <p>To donate, reach out to me through whatsapp with the phone number provided.</p>
+            </div>
+                <hr class="w-100 clearfix d-md-none" />
+                <hr class="w-100 clearfix d-md-none" />
+                <hr class="w-100 clearfix d-md-none" />
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-2">
+                    <h6 class="text-uppercase mb-3 font-weight-bold">Contact</h6>
+                    <p><i class="fas fa-home mr-2"></i> Accra, Ghana GH</p>
+                    <p><i class="fas fa-envelope mr-2"></i> sadikalhanssah@gmail.com</p>
+                    <p><i class="fas fa-phone mr-2"></i> + 233 59 632 1362</p>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-2">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Follow</h6>
+                <a
+                    class="btn btn-primary btn-floating m-1"
+                    style="background-color: #3b5998"
+                    href="#!"
+                    role="button"
+                    ><i class="fab fa-facebook-f"></i
+                    ></a>
+    
+                <!-- Twitter -->
+                <a
+                    class="btn btn-primary btn-floating m-1"
+                    style="background-color: #55acee"
+                    href="#!"
+                    role="button"
+                    ><i class="fab fa-twitter"></i
+                    ></a>
+    
+                <!-- Google -->
+                <a
+                    class="btn btn-primary btn-floating m-1"
+                    style="background-color: #dd4b39"
+                    href="#!"
+                    role="button"
+                    ><i class="fab fa-google"></i
+                    ></a>
+    
+                <!-- Instagram -->
+                <a
+                    class="btn btn-primary btn-floating m-1"
+                    style="background-color: #ac2bac"
+                    href="#!"
+                    role="button"
+                    ><i class="fab fa-instagram"></i
+                    ></a>
+    
+                <!-- Linkedin -->
+                <a
+                    class="btn btn-primary btn-floating m-1"
+                    style="background-color: #0082ca"
+                    href="#!"
+                    role="button"
+                    ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                <!-- Github -->
+                <a
+                    class="btn btn-primary btn-floating m-1"
+                    style="background-color: #333333"
+                    href="#!"
+                    role="button"
+                    ><i class="fab fa-github"></i
+                    ></a>
+                </div>
+            </div>
+            </section>
+        </div>
+        <div
+            class="text-center p-3"
+            style="background-color: rgba(0, 0, 0, 0.2)"
+            >
+            &copy; 2023 Copyright:
+            <a href="{% url 'home' %}">FarWeather.Com</a> By Farouk With Love
+        </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
+</body>
+</html>
